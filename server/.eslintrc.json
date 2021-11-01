@@ -1,0 +1,93 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "eslint-plugin-import-helpers"],
+  "rules": {
+    "no-new": "off",
+    "no-prototype-builtins": "off",
+    "no-restricted-syntax": "off",
+    "max-classes-per-file": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "_"
+      }
+    ],
+    "no-useless-constructor": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "warn",
+      {
+        "allowArgumentsExplicitlyTypedAsAny": true
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/camelcase": "off",
+    "prettier/prettier": "error",
+    "class-methods-use-this": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always", // new line between groups
+        "groups": [
+          "module",
+          "/^@server/shared/",
+          "/^@/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "directory": "packages/server/*/tsconfig.json"
+      }
+    }
+  }
+}

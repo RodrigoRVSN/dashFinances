@@ -16,6 +16,8 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-typescript": "^7.10.1",
     "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/pg": "^8.6.1",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "babel-plugin-module-resolver": "^4.0.0",
@@ -35,6 +37,9 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1"
   }
 }

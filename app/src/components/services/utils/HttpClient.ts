@@ -77,7 +77,6 @@ class HttpClient {
       },
       body: JSON.stringify(bodyFetch),
     })
-    console.log(response);
 
     const contentType = response.headers.get('Content-Type')
 

@@ -10,7 +10,7 @@ export default function withSSRGuest<P>(fn: GetServerSideProps<P>) {
     ctx: GetServerSidePropsContext
   ): Promise<GetServerSidePropsResult<P>> => {
     const cookies = parseCookies(ctx)
-    console.log('redirect')
+    
     if (cookies['@dashfinances.token']) {
       return {
         redirect: {

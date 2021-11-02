@@ -45,8 +45,6 @@ class FinancesRepositoryClass {
   }
 
   async update(id, { name, category, amount }) {
-    console.log(name, category, amount);
-    console.log(id);
     const [row] = await db(
       `
       UPDATE finances 
@@ -57,7 +55,6 @@ class FinancesRepositoryClass {
       [name, category, amount, id],
     );
 
-    console.log(row);
     return row;
   }
 

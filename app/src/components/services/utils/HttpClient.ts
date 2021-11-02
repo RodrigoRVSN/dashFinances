@@ -11,7 +11,7 @@ class HttpClient {
   async post(path: string, bodyFetch: any) {
     await delay(500)
     const cookies = parseCookies()
-
+    
     const response = await fetch(`${this.baseURL}${path}`, {
       method: 'POST',
       headers: {

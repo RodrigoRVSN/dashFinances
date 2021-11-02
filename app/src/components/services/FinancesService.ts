@@ -4,7 +4,9 @@ class FinancesService {
   httpClient: HttpClient
 
   constructor() {
-    this.httpClient = new HttpClient(`${process.env.API_LOCAL!}/finance`)
+    // this.httpClient = new HttpClient(`${process.env.API_LOCAL!}/finance`)
+
+    this.httpClient = new HttpClient('http://localhost:3333/finance')
   }
 
   async getAll() {

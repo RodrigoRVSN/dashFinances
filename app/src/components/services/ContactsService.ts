@@ -4,7 +4,9 @@ class ContactsService {
   httpClient: HttpClient
 
   constructor() {
-    this.httpClient = new HttpClient(process.env.API_LOCAL!)
+    
+    this.httpClient = new HttpClient('http://localhost:3333')
+    // this.httpClient = new HttpClient(process.env.API_LOCAL!)
   }
   
   async login(email: string, password: string) {

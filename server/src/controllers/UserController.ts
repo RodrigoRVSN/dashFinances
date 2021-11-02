@@ -40,6 +40,10 @@ class UserControllerClass {
 
     const user = (await UsersRepository.findByEmail(email)) as unknown as User;
 
+    if (!user) {
+      return res.status(400).json({ error: "User not exists" });
+    }
+
     if (user.password !== password) {
       return res.status(400).json({ error: `Password incorrect!` });
     }
@@ -50,6 +54,14 @@ class UserControllerClass {
     });
 
     return res.status(200).json({ token, email: user.email, name: user.name });
+  }
+
+  async show(req, res) {
+    const { userToken } = req;
+
+    const user = (await UsersRepository.findById(userToken)) as unknown as User;
+
+    res.json(user);
   }
 }
 

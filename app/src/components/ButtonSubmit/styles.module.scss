@@ -1,0 +1,16 @@
+.button__container {
+  border-radius: 1rem;
+  padding: 0.9rem 0.8rem;
+
+  margin-top: 2rem;
+  background: var(--green);
+  border: 2px solid var(--green);
+  transition: ease-in 0.3s;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  &:hover {
+    background: var(--gray-800);
+    color: var(--green);
+  }
+}

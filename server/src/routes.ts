@@ -7,10 +7,11 @@ import authMiddleware from "./middlewares/authMiddleware";
 const routes = Router();
 
 routes.post("/register", UserController.store);
-routes.get("/login", UserController.login);
+routes.post("/login", UserController.login);
+routes.get("/me", authMiddleware, UserController.show);
 
-routes.post("/finance/new", authMiddleware, FinancesController.store);
 routes.get("/finance/all", authMiddleware, FinancesController.show);
+routes.post("/finance/new", authMiddleware, FinancesController.store);
 routes.delete("/finance/delete/:id", authMiddleware, FinancesController.delete);
 routes.put("/finance/update/:id", authMiddleware, FinancesController.update);
 

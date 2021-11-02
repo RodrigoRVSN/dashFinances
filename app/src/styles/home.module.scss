@@ -1,0 +1,38 @@
+.home__container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2rem;
+
+  img {
+    width: 35rem;
+    height: 35rem;
+    margin-right: 5rem;
+  }
+
+  @media (max-width: 1120px) {
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: 620px) {
+    flex-direction: column-reverse;
+    img {
+      width: 25rem;
+      height: 25rem;
+      margin-right: 5rem;
+    }
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 10rem;
+      height: 10rem;
+      margin-right: 0;
+    }
+  }
+}

@@ -5,7 +5,7 @@ const errorHandler = (
   req: Request,
   res: Response,
 ): void => {
-  res.sendStatus(500);
+  res.status(500).json({ error: error.name });
 };
 
 export { errorHandler };

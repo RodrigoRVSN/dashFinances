@@ -1,0 +1,86 @@
+import Router from 'next/router'
+import { destroyCookie, parseCookies } from 'nookies'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
+import ContactsService from '../components/services/ContactsService'
+import FinancesService from '../components/services/FinancesService'
+
+interface IUser {
+  token: string
+  email: string
+  name: string
+}
+
+interface IFinance{
+  id: string;
+  name: string;
+  category: string;
+  amount: number;
+}
+
+interface AuthContextData {
+  user: IUser
+  setUser: Dispatch<SetStateAction<IUser>>
+  finances: IFinance[]
+  token: string
+  setToken: Dispatch<SetStateAction<string>>
+  signOut: () => void
+}
+
+interface AuthProviderProps {
+  children: ReactNode
+}
+
+const AuthContext = createContext({} as AuthContextData)
+
+export function AuthProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<IUser>({} as IUser)
+  const [token, setToken] = useState('')
+  const [finances, setFinances] = useState({})
+
+  async function signOut() {
+    destroyCookie(undefined, '@dashfinances.token')
+    Router.push('/')
+  }
+
+  useEffect(() => {
+    const { '@dashfinances.token': cookieToken } = parseCookies()
+
+    if (cookieToken) {
+      ContactsService.me().then((res) => {
+        setUser(res)
+        setToken(cookieToken)
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    const { '@dashfinances.token': cookieToken } = parseCookies()
+
+    if (cookieToken) {
+      FinancesService.getAll().then((res) => {
+        setFinances(res)
+      })
+    }
+  }, [])
+
+  return (
+    <AuthContext.Provider
+      value={{ user, setUser, token, setToken, finances, signOut }}
+    >
+      {children}
+    </AuthContext.Provider>
+  )
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext)
+  return context
+}

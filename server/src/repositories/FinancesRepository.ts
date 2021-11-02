@@ -2,6 +2,7 @@ import { db } from "../database";
 
 class FinancesRepositoryClass {
   async create({ name, category, amount, userToken }) {
+    // const created = new Date();
     const [row] = await db(
       `
       INSERT INTO finances(name, category, amount, user_id)

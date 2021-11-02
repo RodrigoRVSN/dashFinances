@@ -24,6 +24,6 @@ export default function authMiddleware(req, res, next) {
 
     return next();
   } catch {
-    return res.sendStatus(401);
+    return res.status(401);
   }
 }

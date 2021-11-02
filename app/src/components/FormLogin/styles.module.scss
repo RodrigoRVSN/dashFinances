@@ -1,0 +1,29 @@
+.form__container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 4.5rem;
+  background: var(--gray-850);
+
+  width: 100%;
+  min-width: 25vw;
+  max-width: 40vw;
+
+  border-radius: 1rem;
+  gap: 1.8rem;
+
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--gray-100);
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 1120px) {
+    max-width: 70vw;
+  }
+
+  @media (max-width: 800px) {
+    max-width: 90vw;
+  }
+}

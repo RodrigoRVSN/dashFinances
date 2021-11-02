@@ -1,0 +1,30 @@
+.input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+  
+  label {
+    font-size: 1.1rem;
+    color: var(--gray-100);
+    font-weight: bold;
+  }
+  
+  input {
+    border-radius: 0.4rem;
+    padding: 1rem;
+    
+    background: var(--gray-900);
+    border: 0;
+    border-bottom: 3px solid var(--gray-900);
+    color: var(--gray-100);
+    
+    &.active {
+      border-bottom: 3px solid var(--green);
+    }
+  }
+
+  input::placeholder {
+    color: var(--gray-100);
+  }
+}

@@ -10,7 +10,6 @@ import {
   useState,
 } from 'react'
 import ContactsService from '../components/services/ContactsService'
-import FinancesService from '../components/services/FinancesService'
 
 interface IUser {
   token: string
@@ -18,17 +17,20 @@ interface IUser {
   name: string
 }
 
-interface IFinance{
-  id: string;
-  name: string;
-  category: string;
-  amount: number;
+export interface IFinance {
+  id: string
+  name: string
+  category: string
+  amount: number
 }
 
 interface AuthContextData {
   user: IUser
   setUser: Dispatch<SetStateAction<IUser>>
   finances: IFinance[]
+  setFinances: Dispatch<SetStateAction<never[]>>
+  refresh: boolean
+  setRefresh: Dispatch<SetStateAction<boolean>>
   token: string
   setToken: Dispatch<SetStateAction<string>>
   signOut: () => void
@@ -43,10 +45,13 @@ const AuthContext = createContext({} as AuthContextData)
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<IUser>({} as IUser)
   const [token, setToken] = useState('')
-  const [finances, setFinances] = useState({})
+  const [finances, setFinances] = useState([])
+  const [refresh, setRefresh] = useState(false)
 
   async function signOut() {
     destroyCookie(undefined, '@dashfinances.token')
+    setUser({} as IUser)
+    setFinances([])
     Router.push('/')
   }
 
@@ -59,21 +64,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setToken(cookieToken)
       })
     }
-  }, [])
-
-  useEffect(() => {
-    const { '@dashfinances.token': cookieToken } = parseCookies()
-
-    if (cookieToken) {
-      FinancesService.getAll().then((res) => {
-        setFinances(res)
-      })
-    }
-  }, [])
+  }, [finances])
 
   return (
     <AuthContext.Provider
-      value={{ user, setUser, token, setToken, finances, signOut }}
+      value={{
+        user,
+        setUser,
+        token,
+        setToken,
+        finances,
+        setFinances,
+        signOut,
+        refresh,
+        setRefresh,
+      }}
     >
       {children}
     </AuthContext.Provider>

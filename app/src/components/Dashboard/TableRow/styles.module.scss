@@ -1,0 +1,27 @@
+.table__row {
+  input {
+    text-align: center;
+    background: none;
+    border: 0;
+    font-size: 1.2rem;
+    font-family: Poppins, sans-serif;
+    color: var(--white);
+    background: var(--gray-800);
+    padding: 1rem 0;
+    &.positive {
+      color: var(--green);
+    }
+    &.negative {
+      color: #e63946;
+    }
+    &:disabled{
+      background: var(--gray-850);
+    }
+  }
+  &.positive {
+    color: var(--green);
+  }
+  &.negative {
+    color: #e63946;
+  }
+}

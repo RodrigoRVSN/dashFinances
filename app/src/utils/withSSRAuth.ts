@@ -4,6 +4,7 @@ import {
   GetServerSidePropsResult,
 } from 'next'
 import { destroyCookie, parseCookies } from 'nookies'
+import { toast } from 'react-toastify'
 
 export default function withSSRAuth<P>(fn: GetServerSideProps<P>) {
   return async (
@@ -23,7 +24,8 @@ export default function withSSRAuth<P>(fn: GetServerSideProps<P>) {
 
     try {
       return await fn(ctx)
-    } catch (err) {
+    } catch (error) {
+      toast.error(error.message)
       destroyCookie(undefined, 'authnext.token')
 
       return {

@@ -29,6 +29,31 @@
     align-items: center;
     justify-content: center;
 
+    > div {
+      width: 100%;
+      display: flex;
+
+      button {
+        padding: 1rem;
+        width: 100%;
+        border-radius: 1rem 0 0 0;
+        color: var(--gray-100);
+        background: var(--gray-900);
+        border: 0;
+      }
+      button:last-child {
+        border-radius: 0 1rem 0 0;
+      }
+
+      .active {
+        background: var(--gray-850);
+      }
+    }
+
+    @media (max-width: 1120px) {
+      margin-top: 40vh;
+    }
+    
     img {
       width: 10rem;
       height: 10rem;

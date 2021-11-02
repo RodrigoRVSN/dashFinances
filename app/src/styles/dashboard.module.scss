@@ -1,0 +1,19 @@
+.dashboard__container {
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  margin: 0 auto;
+  
+  section {
+    margin-top: 5vh;
+    span {
+      font-size: 2rem;
+    }
+    img{
+      margin-top: 5vh
+    }
+  }
+}

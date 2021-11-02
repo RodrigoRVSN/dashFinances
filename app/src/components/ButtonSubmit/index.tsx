@@ -2,11 +2,22 @@ import styles from './styles.module.scss'
 
 interface ButtonSubmitProps {
   title: string
+  onClick?: () => void | (() => Promise<void>)
+  disabled?: boolean 
 }
 
-export default function ButtonSubmit({ title }: ButtonSubmitProps) {
+export default function ButtonSubmit({
+  title,
+  disabled,
+  onClick = () => undefined,
+}: ButtonSubmitProps) {
   return (
-    <button className={styles.button__container} type='submit'>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={styles.button__container}
+      type='submit'
+    >
       {title}
     </button>
   )

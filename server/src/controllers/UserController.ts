@@ -50,7 +50,7 @@ class UserControllerClass {
 
     const token = jwt.sign({}, "supersecretsomuchsecret", {
       subject: user.id,
-      expiresIn: 60 * 100,
+      expiresIn: 60 * 60 * 24,
     });
 
     return res.status(200).json({ token, email: user.email, name: user.name });

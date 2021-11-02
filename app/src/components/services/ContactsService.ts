@@ -11,7 +11,12 @@ class ContactsService {
     const body = { email, password }
     return this.httpClient.post(`/login`, body)
   }
-  
+
+  async register(name: string, email: string, password: string) {
+    const body = { name, email, password }
+    return this.httpClient.post(`/register`, body)
+  }
+
   async me() {
     return this.httpClient.get(`/me`)
   }

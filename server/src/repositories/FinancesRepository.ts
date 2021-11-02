@@ -30,6 +30,7 @@ class FinancesRepositoryClass {
 
   async getAll({ userToken, orderBy }) {
     const direction = orderBy.toUpperCase() === "DESC" ? "DESC" : "ASC";
+
     const row = await db(
       `
        SELECT * 
@@ -44,15 +45,19 @@ class FinancesRepositoryClass {
   }
 
   async update(id, { name, category, amount }) {
+    console.log(name, category, amount);
+    console.log(id);
     const [row] = await db(
       `
       UPDATE finances 
       SET name = $1, category = $2, amount = $3
       WHERE id = $4  
+      RETURNING *
     `,
       [name, category, amount, id],
     );
 
+    console.log(row);
     return row;
   }
 

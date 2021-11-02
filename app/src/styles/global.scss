@@ -33,6 +33,7 @@
 body {
   background-color: var(--gray-900);
   color: var(--white);
+  overflow-x: hidden;
 }
 
 body,
@@ -47,6 +48,11 @@ button {
 
 button {
   cursor: pointer;
+  transition: ease-in 0.2s;
+}
+
+button:hover {
+  filter: brightness(2);
 }
 
 a {
@@ -61,4 +67,12 @@ a {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--green);
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.ReactModal__Content {
+  border-radius: 1rem !important;
 }

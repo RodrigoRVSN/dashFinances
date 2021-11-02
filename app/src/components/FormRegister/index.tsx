@@ -1,34 +1,26 @@
-import Router from 'next/router'
-import { FormEvent, useState } from 'react'
-import { setCookie } from 'nookies'
-import { useAuth } from '../../contexts/auth'
+import { FormEvent, useState, Dispatch, SetStateAction } from 'react'
+import { toast } from 'react-toastify'
 import ButtonSubmit from '../ButtonSubmit'
 import ContactsService from '../services/ContactsService'
 
 import styles from './styles.module.scss'
 import Input from '../Input'
-import { toast } from 'react-toastify'
 
-export default function FormLogin() {
-  const { setUser, setToken } = useAuth()
+interface FormRegisterProps {
+  setIsLogin: Dispatch<SetStateAction<boolean>>
+}
+
+export default function FormRegister({ setIsLogin }: FormRegisterProps) {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     try {
-      const data = await ContactsService.login(email, password)
-
-      setCookie(undefined, '@dashfinances.token', data.token, {
-        maxAge: 60 * 60 * 24 * 30,
-        path: '/',
-      })
-      
-      setUser(data)
-      setToken(data.token)
-      toast.dark('✅ Login feito com sucesso!');
-
-      Router.push('/dashboard')
+      await ContactsService.register(name, email, password)
+      toast.dark('✅ Conta criada com sucesso!');
+      setIsLogin(true)
     } catch (error) {
       toast.error(error.message)
     }
@@ -36,8 +28,15 @@ export default function FormLogin() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form__container}>
-      <h1>Bem-vindo de volta! 💲</h1>
+      <h1>Bem-vindo! 💲</h1>
 
+      <Input
+        type='text'
+        onChange={(ev) => setName(ev.target.value)}
+        value={name}
+        placeholder='Digite seu nome'
+        label='Nome'
+      />
       <Input
         type='email'
         onChange={(ev) => setEmail(ev.target.value)}
@@ -52,7 +51,7 @@ export default function FormLogin() {
         placeholder='Digite sua senha'
         label='Senha'
       />
-      <ButtonSubmit title='ENTRAR' />
+      <ButtonSubmit title='REGISTRAR' />
     </form>
   )
 }

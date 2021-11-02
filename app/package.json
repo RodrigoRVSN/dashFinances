@@ -12,10 +12,14 @@
     "nookies": "^2.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-modal": "^3.14.3",
+    "react-toastify": "^8.0.3",
     "sass": "^1.43.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
+    "@types/react-modal": "^3.13.1",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "babel-eslint": "^10.1.0",

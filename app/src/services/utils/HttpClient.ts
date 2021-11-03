@@ -1,5 +1,5 @@
 import { parseCookies } from 'nookies'
-import delay from '../../../utils/delay'
+import delay from '../../utils/delay'
 
 class HttpClient {
   baseURL: string

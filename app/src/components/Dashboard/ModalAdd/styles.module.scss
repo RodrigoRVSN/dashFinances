@@ -18,5 +18,10 @@
     flex-direction: column;
     gap: 2rem;
     padding: 3rem;
+    align-items: center;
+
+    button{
+      max-width: 20rem;
+    }
   }
 }

@@ -52,6 +52,7 @@ export default function ModalDelete({
       onRequestClose={closeModal}
       style={customStyles}
       className={styles.modal__container}
+      ariaHideApp={false}
     >
       <h2>Deseja mesmo excluir {finance.name}?</h2>
       <div onSubmit={handleSubmit}>

@@ -34,7 +34,7 @@ export default function TableRow({
       await FinancesService.updateFinance(name, category, amount, finance.id)
       setEditSelect('')
       setRefresh(!refresh)
-      toast.dark('✅ Edição feita com sucesso!');
+      toast.dark('✅ Edição feita com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
     }

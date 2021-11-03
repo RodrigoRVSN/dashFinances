@@ -1,4 +1,5 @@
 .table__row {
+  
   input {
     text-align: center;
     background: none;
@@ -8,6 +9,7 @@
     color: var(--white);
     background: var(--gray-800);
     padding: 1rem 0;
+
     &.positive {
       color: var(--green);
     }

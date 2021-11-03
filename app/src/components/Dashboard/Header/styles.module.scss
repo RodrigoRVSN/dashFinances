@@ -1,5 +1,5 @@
 .header__container {
-  padding: 5rem 1rem;
+  padding: 5rem 4rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -38,6 +38,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    padding: 2rem 0;
     h1 {
       font-size: 1.2rem;
     }

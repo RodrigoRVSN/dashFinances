@@ -57,6 +57,7 @@ export default function ModalAdd({
       onRequestClose={closeModal}
       style={customStyles}
       className={styles.modal__container}
+      ariaHideApp={false}
     >
       <h2>Inserir nova transação</h2>
       <form onSubmit={handleSubmit}>
@@ -82,7 +83,10 @@ export default function ModalAdd({
           placeholder='Digite o valor'
           label='Valor'
         />
-        <ButtonSubmit title='Criar' disabled={!amount || !category || !name} />
+        <ButtonSubmit
+          title='Nova transação'
+          disabled={!amount || !category || !name}
+        />
       </form>
     </Modal>
   )

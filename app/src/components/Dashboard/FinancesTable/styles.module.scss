@@ -1,23 +1,29 @@
 .table__container {
-  overflow-x: auto;
-  width: 100%;
-  max-width: 1120px;
+  width: 90vw;
+  max-width: 1220px;
 
   table {
-    padding: 3rem 5rem 3rem 0;
+    padding: 2rem 5rem 2rem 0;
     text-align: center;
     background: var(--gray-850);
     border-radius: 1rem;
     font-family: Poppins, sans-serif;
-    overflow-x: auto;
-    display: block;
+
+    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
+    justify-content: center;
+    align-items: center;
   }
 
   thead {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    tr {
+      font-size: 1.5rem;
+      td {
+        padding-bottom: 2rem !important;
+      }
+    }
   }
 
   td {
@@ -51,6 +57,12 @@
   @media (max-width: 800px) {
     table {
       width: 90vw;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    table {
+      display: block;
     }
   }
 }

@@ -16,7 +16,7 @@ export default function FinancesTable() {
             <td>
               <p>Descrição</p>
             </td>
-            <td>Valor</td>
+            <td>Valor (R$)</td>
             <td />
           </tr>
         </thead>

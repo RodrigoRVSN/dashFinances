@@ -11,12 +11,13 @@
 ___
 <!--- #################### mudar badges #################### --->
 
+![Untitled_ Nov 2, 2021 11_37 PM (1)](https://user-images.githubusercontent.com/75763403/140005352-b3392787-4201-4d24-8fd9-498dd6e258e9.gif)
 
 
 <!--- #################### mudar imagem exemplo #################### --->
 ___
-> Site subscribe to dash your finances
-- Authentication with Nodejs (express)
+> Site to manage your finances
+- Authentication with backend made in Nodejs (express)
 - Frontend with Next
 ___
 ## 💻 Prerequisites
@@ -40,16 +41,9 @@ To use, follow the steps:
 ```
 - git clone https://github.com/rodrigorvsn/dashFinances.git
 - yarn || npm install
-- yarn stripe
-- yarn start || npm start
+- yarn dev in /server and /app
 ```
-___
-## 🔒 ENV Example
 
-- Check .env.example to see the env variables!
-
-<!--- #################### mudar passos #################### --->
-___
 ## 📫 Contribuiting with dashFinances
 
 To contribue with dashFinances, follow the steps:

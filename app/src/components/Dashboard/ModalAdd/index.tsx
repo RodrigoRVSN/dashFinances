@@ -2,9 +2,9 @@ import { Dispatch, FormEvent, SetStateAction, useState } from 'react'
 import Modal from 'react-modal'
 import { toast } from 'react-toastify'
 import { useAuth } from '../../../contexts/auth'
+import FinancesService from '../../../services/FinancesService'
 import ButtonSubmit from '../../ButtonSubmit'
 import Input from '../../Input'
-import FinancesService from '../../services/FinancesService'
 import styles from './styles.module.scss'
 
 interface ModalProps {

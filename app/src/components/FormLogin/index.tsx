@@ -4,10 +4,10 @@ import { setCookie } from 'nookies'
 import { toast } from 'react-toastify'
 import { useAuth } from '../../contexts/auth'
 import ButtonSubmit from '../ButtonSubmit'
-import ContactsService from '../services/ContactsService'
 
 import styles from './styles.module.scss'
 import Input from '../Input'
+import UsersServices from '../../services/UsersServices'
 
 export default function FormLogin() {
   const { setUser, setToken } = useAuth()
@@ -17,16 +17,16 @@ export default function FormLogin() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     try {
-      const data = await ContactsService.login(email, password)
+      const data = await UsersServices.login(email, password)
 
       setCookie(undefined, '@dashfinances.token', data.token, {
         maxAge: 60 * 60 * 24 * 30,
         path: '/',
       })
-      
+
       setUser(data)
       setToken(data.token)
-      toast.dark('✅ Login feito com sucesso!');
+      toast.dark('✅ Login feito com sucesso!')
 
       Router.push('/dashboard')
     } catch (error: any) {

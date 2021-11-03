@@ -1,10 +1,10 @@
 import { FormEvent, useState, Dispatch, SetStateAction } from 'react'
 import { toast } from 'react-toastify'
 import ButtonSubmit from '../ButtonSubmit'
-import ContactsService from '../services/ContactsService'
 
 import styles from './styles.module.scss'
 import Input from '../Input'
+import UsersServices from '../../services/UsersServices'
 
 interface FormRegisterProps {
   setIsLogin: Dispatch<SetStateAction<boolean>>
@@ -18,7 +18,7 @@ export default function FormRegister({ setIsLogin }: FormRegisterProps) {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     try {
-      await ContactsService.register(name, email, password)
+      await UsersServices.register(name, email, password)
       toast.dark('✅ Conta criada com sucesso!');
       setIsLogin(true)
     } catch (error: any) {

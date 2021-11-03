@@ -1,6 +1,6 @@
 import HttpClient from './utils/HttpClient'
 
-class ContactsService {
+class UsersServices {
   httpClient: HttpClient
 
   constructor() {
@@ -24,4 +24,4 @@ class ContactsService {
   }
 }
 
-export default new ContactsService()
+export default new UsersServices()

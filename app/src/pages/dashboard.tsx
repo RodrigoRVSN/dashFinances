@@ -7,7 +7,7 @@ import withSSRAuth from '../utils/withSSRAuth'
 
 import styles from '../styles/dashboard.module.scss'
 import Header from '../components/Dashboard/Header'
-import FinancesService from '../components/services/FinancesService'
+import FinancesService from '../services/FinancesService'
 
 export default function Dashboard() {
   const { finances, setFinances, refresh } = useAuth()

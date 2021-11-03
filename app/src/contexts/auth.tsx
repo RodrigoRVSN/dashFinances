@@ -9,7 +9,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import ContactsService from '../components/services/ContactsService'
+import UsersServices from '../services/UsersServices'
 
 interface IUser {
   token: string
@@ -59,7 +59,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const { '@dashfinances.token': cookieToken } = parseCookies()
 
     if (cookieToken) {
-      ContactsService.me().then((res) => {
+      UsersServices.me().then((res) => {
         setUser(res)
         setToken(cookieToken)
       })

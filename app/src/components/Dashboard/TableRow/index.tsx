@@ -6,7 +6,7 @@ import { IFinance, useAuth } from '../../../contexts/auth'
 import ModalDelete from '../ModalDelete'
 
 import styles from './styles.module.scss'
-import FinancesService from '../../services/FinancesService'
+import FinancesService from '../../../services/FinancesService'
 
 interface TableRowProps {
   finance: IFinance

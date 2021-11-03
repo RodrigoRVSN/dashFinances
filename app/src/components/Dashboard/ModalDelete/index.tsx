@@ -2,8 +2,8 @@ import { Dispatch, FormEvent, SetStateAction } from 'react'
 import Modal from 'react-modal'
 import { toast } from 'react-toastify'
 import { IFinance, useAuth } from '../../../contexts/auth'
+import FinancesService from '../../../services/FinancesService'
 import ButtonSubmit from '../../ButtonSubmit'
-import FinancesService from '../../services/FinancesService'
 import styles from './styles.module.scss'
 
 interface ModalProps {

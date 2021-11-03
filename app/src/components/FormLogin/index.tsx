@@ -1,13 +1,13 @@
 import Router from 'next/router'
 import { FormEvent, useState } from 'react'
 import { setCookie } from 'nookies'
+import { toast } from 'react-toastify'
 import { useAuth } from '../../contexts/auth'
 import ButtonSubmit from '../ButtonSubmit'
 import ContactsService from '../services/ContactsService'
 
 import styles from './styles.module.scss'
 import Input from '../Input'
-import { toast } from 'react-toastify'
 
 export default function FormLogin() {
   const { setUser, setToken } = useAuth()
@@ -29,7 +29,7 @@ export default function FormLogin() {
       toast.dark('✅ Login feito com sucesso!');
 
       Router.push('/dashboard')
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
     }
   }

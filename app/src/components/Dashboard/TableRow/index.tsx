@@ -35,7 +35,7 @@ export default function TableRow({
       setEditSelect('')
       setRefresh(!refresh)
       toast.dark('✅ Edição feita com sucesso!');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
     }
   }

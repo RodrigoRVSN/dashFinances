@@ -15,7 +15,6 @@ class ContactsService {
   }
   
   async register(name: string, email: string, password: string) {
-    console.log(process.env.API_LOCAL)
     const body = { name, email, password }
     return this.httpClient.post(`/register`, body)
   }

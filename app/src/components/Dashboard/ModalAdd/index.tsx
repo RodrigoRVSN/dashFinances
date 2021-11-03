@@ -46,7 +46,7 @@ export default function ModalAdd({
       setRefresh(!refresh)
       closeModal()
       toast.dark('✅ Adição realizada com sucesso!')
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
     }
   }

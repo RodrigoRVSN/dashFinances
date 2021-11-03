@@ -41,7 +41,7 @@ export default function ModalDelete({
       setRefresh(!refresh)
       closeModal()
       toast.dark('✅ Exclusão realizada com sucesso!')
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
     }
   }

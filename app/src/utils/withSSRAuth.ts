@@ -24,7 +24,7 @@ export default function withSSRAuth<P>(fn: GetServerSideProps<P>) {
 
     try {
       return await fn(ctx)
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
       destroyCookie(undefined, 'authnext.token')
 

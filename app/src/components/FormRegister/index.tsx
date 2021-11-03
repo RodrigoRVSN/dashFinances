@@ -21,7 +21,7 @@ export default function FormRegister({ setIsLogin }: FormRegisterProps) {
       await ContactsService.register(name, email, password)
       toast.dark('✅ Conta criada com sucesso!');
       setIsLogin(true)
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message)
     }
   }

@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 
 interface ButtonSubmitProps {
   title: string
-  onClick?: () => void | (() => Promise<void>)
+  onClick?: any
   disabled?: boolean 
 }
 

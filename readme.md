@@ -11,7 +11,7 @@
 ___
 <!--- #################### mudar badges #################### --->
 
-![Untitled_ Nov 2, 2021 11_37 ![Untitled_ Nov 3, 2021 8_34 AM](https://user-images.githubusercontent.com/75763403/140053676-86ef79eb-0f67-4d88-b8ce-983e3057e6bf.gif)
+![Untitled_ Nov 3, 2021 8_34 AM](https://user-images.githubusercontent.com/75763403/140053676-86ef79eb-0f67-4d88-b8ce-983e3057e6bf.gif)
 
 
 <!--- #################### mudar imagem exemplo #################### --->

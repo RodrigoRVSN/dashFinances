@@ -64,7 +64,7 @@ Made with ❤️ by:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://github.com/rodrigorvsn.png" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://github.com/rodrigorvsn.png" width="100px;" alt="Foto do Rodrigo Victor no GitHub"/><br>
         <sub>
           <b>Rodrigo Victor</b>
         </sub>

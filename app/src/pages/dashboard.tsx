@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style */
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { parseCookies } from 'nookies'
 import { FiLoader } from 'react-icons/fi'
 import FinancesTable from '../components/Dashboard/FinancesTable'

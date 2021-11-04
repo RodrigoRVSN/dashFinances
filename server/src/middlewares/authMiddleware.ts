@@ -10,13 +10,13 @@ export default function authMiddleware(req, res, next) {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(401);
+    return res.status(401).send();
   }
 
   const [, token] = authorization.split(" ");
 
   try {
-    const data = jwt.verify(token, "supersecretsomuchsecret");
+    const data = jwt.verify(token, process.env.jwtSecret);
 
     const { sub } = data as ITokenPayload;
 
@@ -24,6 +24,6 @@ export default function authMiddleware(req, res, next) {
 
     return next();
   } catch {
-    return res.status(401);
+    return res.status(401).send();
   }
 }

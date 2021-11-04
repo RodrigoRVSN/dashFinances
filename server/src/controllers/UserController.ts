@@ -48,7 +48,7 @@ class UserControllerClass {
       return res.status(400).json({ error: `Password incorrect!` });
     }
 
-    const token = jwt.sign({}, "supersecretsomuchsecret", {
+    const token = jwt.sign({}, process.env.jwtSecret, {
       subject: user.id,
       expiresIn: 60 * 60 * 24,
     });

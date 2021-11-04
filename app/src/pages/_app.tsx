@@ -7,6 +7,7 @@ import '../styles/global.scss'
 import 'react-toastify/dist/ReactToastify.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log(process.env.API_LOCAL)
   return (
     <AuthProvider>
       <ToastContainer />

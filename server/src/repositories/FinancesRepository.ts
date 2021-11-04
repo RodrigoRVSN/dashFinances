@@ -1,15 +1,14 @@
 import { db } from "../database";
 
 class FinancesRepositoryClass {
-  async create({ name, category, amount, userToken }) {
-    // const created = new Date();
+  async create({ name, category, amount, userToken, created }) {
     const [row] = await db(
       `
-      INSERT INTO finances(name, category, amount, user_id)
-      VALUES($1, $2, $3, $4)
+      INSERT INTO finances(name, category, amount, user_id, created)
+      VALUES($1, $2, $3, $4, $5)
       RETURNING *
     `,
-      [name, category, amount, userToken],
+      [name, category, amount, userToken, created],
     );
 
     return row;

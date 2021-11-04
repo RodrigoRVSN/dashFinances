@@ -9,14 +9,17 @@ class FinancesControllerClass {
       return res.status(400).json({ error: "You should send all info" });
     }
 
+    const created = new Date();
+
     const finance = await FinancesRepository.create({
       name,
       category,
       amount,
       userToken,
+      created,
     });
 
-    return res.json(finance);
+    return res.status(201).json(finance);
   }
 
   async show(req, res) {

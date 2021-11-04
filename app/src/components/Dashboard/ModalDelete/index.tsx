@@ -28,7 +28,7 @@ export default function ModalDelete({
   setModalAddIsOpen,
   finance,
 }: ModalProps) {
-  const { refresh, setRefresh } = useAuth()
+  const { refresh, setRefresh, setLoading } = useAuth()
 
   function closeModal() {
     setModalAddIsOpen(false)
@@ -37,12 +37,15 @@ export default function ModalDelete({
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     try {
+      setLoading(true);
       await FinancesService.deleteFinance(finance.id)
       setRefresh(!refresh)
       closeModal()
       toast.dark('✅ Exclusão realizada com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
+    } finally {
+      setLoading(false)
     }
   }
 

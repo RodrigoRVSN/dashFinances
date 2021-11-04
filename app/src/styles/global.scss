@@ -32,7 +32,7 @@
 
 body {
   background-color: var(--gray-900);
-  color: var(--white);
+  color: var(--gray-100);
   overflow-x: hidden;
 }
 
@@ -63,10 +63,11 @@ a {
 ::-webkit-scrollbar {
   background: var(--gray-900);
   width: 0.6rem;
-  border-radius: 1rem;
+  height: 0.8rem;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--green);
+  border-radius: 1rem;
 }
 
 .ReactModal__Overlay {
@@ -75,4 +76,17 @@ a {
 
 .ReactModal__Content {
   border-radius: 1rem !important;
+}
+
+.loader{
+  animation: load 1.6s infinite;
+}
+
+@keyframes load {
+  from{
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg)
+  }
 }

@@ -22,6 +22,7 @@ export interface IFinance {
   name: string
   category: string
   amount: number
+  created: string;
 }
 
 interface AuthContextData {
@@ -31,6 +32,8 @@ interface AuthContextData {
   setFinances: Dispatch<SetStateAction<never[]>>
   refresh: boolean
   setRefresh: Dispatch<SetStateAction<boolean>>
+  loading: boolean
+  setLoading: Dispatch<SetStateAction<boolean>>
   token: string
   setToken: Dispatch<SetStateAction<string>>
   signOut: () => void
@@ -47,6 +50,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [token, setToken] = useState('')
   const [finances, setFinances] = useState([])
   const [refresh, setRefresh] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   async function signOut() {
     destroyCookie(undefined, '@dashfinances.token')
@@ -77,7 +81,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setFinances,
         signOut,
         refresh,
-        setRefresh,
+        setRefresh, 
+        loading, 
+        setLoading
       }}
     >
       {children}

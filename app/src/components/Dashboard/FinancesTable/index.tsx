@@ -12,6 +12,7 @@ export default function FinancesTable() {
       <table>
         <thead>
           <tr>
+            <td>Data</td>
             <td>Nome</td>
             <td>
               <p>Descrição</p>
@@ -20,6 +21,7 @@ export default function FinancesTable() {
             <td />
           </tr>
         </thead>
+        
         <tbody>
           {finances.map((finance) => (
             <TableRow

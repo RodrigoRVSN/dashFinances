@@ -1,14 +1,15 @@
 .table__row {
-  
   input {
     text-align: center;
     background: none;
     border: 0;
     font-size: 1.2rem;
     font-family: Poppins, sans-serif;
-    color: var(--white);
+
+    color: var(--gray-100);
     background: var(--gray-800);
     padding: 1rem 0;
+    border-radius: 1rem;
 
     &.positive {
       color: var(--green);

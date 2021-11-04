@@ -1,13 +1,17 @@
 .table__container {
   width: 90vw;
   max-width: 1220px;
+  animation: fadeIn 1s;
+
+  padding-bottom: 5rem;
 
   table {
-    padding: 2rem 5rem 2rem 0;
+    padding: 2rem 5rem 2rem 2rem;
     text-align: center;
     background: var(--gray-850);
     border-radius: 1rem;
     font-family: Poppins, sans-serif;
+    box-shadow: 2px 4px 7px var(--green);
 
     width: 100%;
     overflow-x: auto;
@@ -27,6 +31,7 @@
   }
 
   td {
+    padding: 0 1rem;
     border-bottom: 1px solid var(--gray-900);
   }
 
@@ -60,7 +65,7 @@
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1300px) {
     table {
       display: block;
     }

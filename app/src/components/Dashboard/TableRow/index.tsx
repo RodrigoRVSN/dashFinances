@@ -23,7 +23,7 @@ export default function TableRow({
   const [name, setName] = useState(finance.name)
   const [category, setCategory] = useState(finance.category)
   const [amount, setAmount] = useState(finance.amount as unknown as number)
-  const { refresh, setRefresh } = useAuth()
+  const { refresh, setRefresh, setLoading } = useAuth()
 
   function handleGoEdit() {
     setEditSelect(finance.id)
@@ -31,18 +31,22 @@ export default function TableRow({
 
   async function handleEditInput() {
     try {
+      setLoading(true);
       await FinancesService.updateFinance(name, category, amount, finance.id)
       setEditSelect('')
       setRefresh(!refresh)
       toast.dark('✅ Edição feita com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
+    } finally{
+      setLoading(false);
     }
   }
 
   return (
     <>
       <tr className={styles.table__row}>
+        <td>{finance.created}</td>
         <td>
           <input
             disabled={finance.id !== editSelect}

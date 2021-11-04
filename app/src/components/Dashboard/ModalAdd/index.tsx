@@ -30,7 +30,7 @@ export default function ModalAdd({
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
   const [amount, setAmount] = useState('' as unknown as number)
-  const { refresh, setRefresh } = useAuth()
+  const { refresh, setRefresh, setLoading } = useAuth()
 
   function closeModal() {
     setName('')
@@ -43,11 +43,14 @@ export default function ModalAdd({
     e.preventDefault()
     try {
       await FinancesService.newFinance(name, category, amount)
-      setRefresh(!refresh)
+      setLoading(true)
       closeModal()
+      setRefresh(!refresh)
       toast.dark('✅ Adição realizada com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
+    } finally{
+      setLoading(false)
     }
   }
 

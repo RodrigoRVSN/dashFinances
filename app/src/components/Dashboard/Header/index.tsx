@@ -5,7 +5,7 @@ import ModalAdd from '../ModalAdd'
 import styles from './styles.module.scss'
 
 export default function Header() {
-  const { user, signOut, finances } = useAuth()
+  const { user, signOut } = useAuth()
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
   return (
@@ -13,15 +13,14 @@ export default function Header() {
       {!!user && (
         <>
           <div>
+            {user.name && <h2>Olá, {user.name}!</h2>}
             <h5>{user.email}</h5>
-            {user.name && <h1>Olá, {user.name}!</h1>}
           </div>
           <img src='/logo.png' alt='Logo dashfinances' />
           <div>
             <ButtonSubmit
               onClick={() => setModalAddIsOpen(true)}
-              title={`+ ${finances.length}
-              ${finances.length === 1 ? ' finança' : ' finanças'}`}
+              title="Nova finança"
             />
             <ButtonSubmit onClick={signOut} title='Sair' />
           </div>

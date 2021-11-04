@@ -2,13 +2,15 @@ import { db } from "../database";
 
 class UsersRepositoryClass {
   async create({ name, email, password }) {
+    const created = new Date();
+
     const [row] = await db(
       `
-      INSERT INTO users(name, email, password)
-      VALUES($1, $2, $3)
+      INSERT INTO users(name, email, password, created)
+      VALUES($1, $2, $3, $4)
       RETURNING *
     `,
-      [name, email, password],
+      [name, email, password, created],
     );
 
     return row;

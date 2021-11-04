@@ -11,7 +11,7 @@
 ___
 <!--- #################### mudar badges #################### --->
 
-![Untitled_ Nov 2, 2021 11_37 PM (1)](https://user-images.githubusercontent.com/75763403/140005352-b3392787-4201-4d24-8fd9-498dd6e258e9.gif)
+![Untitled_ Nov 3, 2021 8_34 AM](https://user-images.githubusercontent.com/75763403/140053676-86ef79eb-0f67-4d88-b8ce-983e3057e6bf.gif)
 
 
 <!--- #################### mudar imagem exemplo #################### --->
@@ -64,7 +64,7 @@ Made with ❤️ by:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://github.com/rodrigorvsn.png" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://github.com/rodrigorvsn.png" width="100px;" alt="Foto do Rodrigo Victor no GitHub"/><br>
         <sub>
           <b>Rodrigo Victor</b>
         </sub>

@@ -7,8 +7,8 @@ class FinancesService {
     this.httpClient = new HttpClient(`${process.env.NEXT_PUBLIC_API_LOCAL}/finance`)
   }
 
-  async getAll() {
-    return this.httpClient.get(`/all`)
+  async getAll(tableDirection: string) {
+    return this.httpClient.get(`/all?orderBy=${tableDirection}`)
   }
 
   async newFinance(name: string, category: string, amount: number) {

@@ -16,7 +16,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
     }
+
+    aside{   
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+
+      display: flex;
+      justify-content: flex-end;
+      svg{
+        background: var(--gray-100);
+        color: var(--green);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.2s ease-in;
+      }
+    }
+
     span {
       margin-top: 4rem;
       font-size: 2rem;

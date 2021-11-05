@@ -46,7 +46,7 @@ export default function TableRow({
   return (
     <>
       <tr className={styles.table__row}>
-        <td>{finance.created}</td>
+        <td>{finance.createdAt}</td>
         <td>
           <input
             disabled={finance.id !== editSelect}

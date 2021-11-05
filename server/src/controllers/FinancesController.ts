@@ -6,7 +6,9 @@ class FinancesControllerClass {
     const { userToken } = req;
 
     if (!name || !category || !amount || !userToken) {
-      return res.status(400).json({ error: "You should send all info" });
+      return res
+        .status(400)
+        .json({ error: "Você deve preencher todas as informações!" });
     }
 
     const created = new Date();
@@ -29,7 +31,7 @@ class FinancesControllerClass {
     const finance = await FinancesRepository.getAll({ userToken, orderBy });
 
     if (!finance) {
-      return res.status(404).json({ error: "Finances not found" });
+      return res.status(404).json({ error: "Finanças não encontradas!" });
     }
 
     return res.json(finance);
@@ -42,11 +44,13 @@ class FinancesControllerClass {
     const userExist = await FinancesRepository.findById(id);
 
     if (!userExist) {
-      return res.status(400).json({ error: "User not found" });
+      return res.status(400).json({ error: "Usuário não encontrado!" });
     }
 
     if (!name || !category || !amount) {
-      return res.status(400).json({ error: "You should send all info" });
+      return res
+        .status(400)
+        .json({ error: "Você deve preencher todas as informações!" });
     }
 
     const finance = await FinancesRepository.update(id, {

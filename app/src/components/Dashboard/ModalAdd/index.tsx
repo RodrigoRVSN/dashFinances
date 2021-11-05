@@ -49,7 +49,7 @@ export default function ModalAdd({
       toast.dark('✅ Adição realizada com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
-    } finally{
+    } finally {
       setLoading(false)
     }
   }
@@ -65,6 +65,7 @@ export default function ModalAdd({
       <h2>Inserir nova transação</h2>
       <form onSubmit={handleSubmit}>
         <Input
+          isAdd
           type='text'
           onChange={(ev) => setName(ev.target.value)}
           value={name}
@@ -72,13 +73,15 @@ export default function ModalAdd({
           label='Nome'
         />
         <Input
+          isAdd
           type='text'
           onChange={(ev) => setCategory(ev.target.value)}
           value={category}
-          placeholder='Digite a cateegoria'
+          placeholder='Digite a categoria'
           label='Categoria'
         />
         <Input
+          isAdd
           type='number'
           pattern='[0-9]*'
           onChange={(ev) => setAmount(Number(ev.target.value))}

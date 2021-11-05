@@ -14,13 +14,21 @@ class UserControllerClass {
     const { name, email, password } = req.body;
 
     if (!name) {
-      return res.status(400).json({ error: `You should send name!` });
+      return res.status(400).json({ error: `Você deve enviar um e-mail!` });
     }
     if (!email) {
-      return res.status(400).json({ error: `You should send email!` });
+      return res.status(400).json({ error: `Você deve enviar um e-mail!` });
     }
     if (!password) {
-      return res.status(400).json({ error: `You should send password!` });
+      return res.status(400).json({ error: `Você deve enviar uma senha!` });
+    }
+
+    const userExists = (await UsersRepository.findByEmail(
+      email,
+    )) as unknown as User;
+
+    if (userExists) {
+      return res.status(400).json({ error: "Usuário já existe!" });
     }
 
     const user = await UsersRepository.create({ name, email, password });
@@ -32,20 +40,20 @@ class UserControllerClass {
     const { email, password } = req.body;
 
     if (!email) {
-      return res.status(400).json({ error: `You should send email!` });
+      return res.status(400).json({ error: `Você deve enviar um e-mail!` });
     }
     if (!password) {
-      return res.status(400).json({ error: `You should send password!` });
+      return res.status(400).json({ error: `Você deve enviar uma senha!` });
     }
 
     const user = (await UsersRepository.findByEmail(email)) as unknown as User;
 
     if (!user) {
-      return res.status(400).json({ error: "User not exists" });
+      return res.status(400).json({ error: "Usuário não existe!" });
     }
 
     if (user.password !== password) {
-      return res.status(400).json({ error: `Password incorrect!` });
+      return res.status(400).json({ error: `Senha errada!` });
     }
 
     const token = jwt.sign({}, process.env.jwtSecret, {

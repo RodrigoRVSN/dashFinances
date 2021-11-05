@@ -1,26 +1,33 @@
 /* eslint-disable arrow-body-style */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { parseCookies } from 'nookies'
-import { FiLoader } from 'react-icons/fi'
+import { FiArrowDown, FiArrowUp, FiLoader } from 'react-icons/fi'
 import FinancesTable from '../components/Dashboard/FinancesTable'
 import { IFinance, useAuth } from '../contexts/auth'
 
 import styles from '../styles/dashboard.module.scss'
 import Header from '../components/Dashboard/Header'
 import FinancesService from '../services/FinancesService'
+import Chart from '../components/Dashboard/Chart'
+import withSSRAuth from '../utils/withSSRAuth'
 
 export default function Dashboard() {
   const { finances, setFinances, refresh, loading, setLoading } = useAuth()
+  const [tableDirection, setTableDirection] = useState('asc');
+
+  function handleToggleDirectionTable() {
+    setTableDirection((prevState) => prevState === 'asc' ? 'desc' : 'asc');
+  }
 
   useEffect(() => {
     const { '@dashfinances.token': cookieToken } = parseCookies()
     if (cookieToken) {
       setLoading(true);
-      FinancesService.getAll().then((res) => {
+      FinancesService.getAll(tableDirection).then((res) => {
         const financesFormatted = res.map((finance: IFinance) => {
           return {
             ...finance,
-            created: new Date(finance.created).toLocaleDateString("pt-BR", {
+            createdAt: new Date(finance.created).toLocaleDateString("pt-BR", {
               day: "2-digit",
               month: "2-digit",
               year: "2-digit",
@@ -33,7 +40,7 @@ export default function Dashboard() {
         setLoading(false);
       })
     }
-  }, [refresh])
+  }, [refresh, tableDirection])
 
   return (
     <main className={styles.dashboard__container}>
@@ -50,8 +57,10 @@ export default function Dashboard() {
             </div>
           ) : (
             <>
-              {/* CHART */}
-              <h1>Pronto para organizar suas finanças?</h1>
+              <Chart finances={finances} />
+              <aside>
+                {tableDirection === 'asc' ? <FiArrowDown size={35} onClick={handleToggleDirectionTable} /> : <FiArrowUp size={35} onClick={handleToggleDirectionTable} />}
+              </aside>
               <FinancesTable />
             </>
           )}
@@ -62,3 +71,11 @@ export default function Dashboard() {
 }
 
 
+
+export const getServerSideProps = withSSRAuth(
+  async () => {
+    return {
+      props: {},
+    };
+  }
+);

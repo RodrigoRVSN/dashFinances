@@ -8,15 +8,20 @@ import ButtonSubmit from '../ButtonSubmit'
 import styles from './styles.module.scss'
 import Input from '../Input'
 import UsersServices from '../../services/UsersServices'
+import InputPassword from '../InputPassword'
 
 export default function FormLogin() {
   const { setUser, setToken } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const [loading, setLoading] = useState(false);
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     try {
+      setLoading(true);
+
       const data = await UsersServices.login(email, password)
 
       setCookie(undefined, '@dashfinances.token', data.token, {
@@ -31,6 +36,8 @@ export default function FormLogin() {
       Router.push('/dashboard')
     } catch (error: any) {
       toast.error(error.message)
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -45,14 +52,13 @@ export default function FormLogin() {
         placeholder='Digite seu e-mail'
         label='E-mail'
       />
-      <Input
-        type='password'
+      <InputPassword
         onChange={(ev) => setPassword(ev.target.value)}
         value={password}
         placeholder='Digite sua senha'
         label='Senha'
       />
-      <ButtonSubmit title='ENTRAR' />
+      <ButtonSubmit loading={loading} title='ENTRAR' />
     </form>
   )
 }

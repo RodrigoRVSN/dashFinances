@@ -1,46 +1,48 @@
 import { InputHTMLAttributes, useState } from 'react'
-import { FiShoppingBag, FiUser } from 'react-icons/fi'
-import { MdOutlineMail } from 'react-icons/md'
+import { FiEye, FiEyeOff, FiLock } from 'react-icons/fi'
 import styles from './styles.module.scss'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string
   label: string
-  type: string
-  isAdd?: boolean
 }
 
-export default function Input({
+export default function InputPassword({
   placeholder,
-  type,
   label,
-  isAdd,
   ...rest
 }: InputProps) {
-  const [focusedInput, setFocusedInput] = useState('')
+  const [focusedInput, setFocusedInput] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   function handleFocusInput(selected: string) {
     setFocusedInput(selected)
+  }
+
+  function handleTogglePasswordState() {
+    setShowPassword(!showPassword)
   }
 
   return (
     <div className={styles.input__container} id={
       focusedInput === label ? styles.active : styles.disabled
     }>
-      {isAdd ? <FiShoppingBag/> : label === "E-mail" ? <MdOutlineMail size={25} /> : <FiUser size={25} />}
+      <FiLock size={25} />
       <div>
         <label htmlFor='input__id'>{label}</label>
         <input
           required
           {...rest}
-
-          type={type}
+          type={showPassword ? "text" : "password"}
           onFocus={() => handleFocusInput(label)}
           onBlur={() => handleFocusInput('')}
           placeholder={placeholder}
           id='input__id'
         />
       </div>
+      {showPassword ?
+        <FiEye size={25} onClick={() => handleTogglePasswordState()} /> :
+        <FiEyeOff size={25} onClick={() => handleTogglePasswordState()} />}
     </div>
   )
 }

@@ -23,6 +23,7 @@ export interface IFinance {
   category: string
   amount: number
   created: string;
+  createdAt: string;
 }
 
 interface AuthContextData {

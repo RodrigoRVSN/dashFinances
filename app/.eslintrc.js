@@ -14,6 +14,8 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
+    "no-undef": 0,
+    "import/no-extraneous-dependencies": 0,
     'no-nested-ternary': 0,
     'react/jsx-no-bind': 0,
     'react/jsx-filename-extension': 0,

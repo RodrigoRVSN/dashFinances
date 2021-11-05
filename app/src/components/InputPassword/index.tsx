@@ -27,7 +27,7 @@ export default function InputPassword({
     <div className={styles.input__container} id={
       focusedInput === label ? styles.active : styles.disabled
     }>
-      <FiLock size={25} />
+      <FiLock size="25px" />
       <div>
         <label htmlFor='input__id'>{label}</label>
         <input
@@ -41,8 +41,8 @@ export default function InputPassword({
         />
       </div>
       {showPassword ?
-        <FiEye size={25} onClick={() => handleTogglePasswordState()} /> :
-        <FiEyeOff size={25} onClick={() => handleTogglePasswordState()} />}
+        <FiEye size="25px" onClick={() => handleTogglePasswordState()} /> :
+        <FiEyeOff size="25px" onClick={() => handleTogglePasswordState()} />}
     </div>
   )
 }

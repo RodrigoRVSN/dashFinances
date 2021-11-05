@@ -27,7 +27,7 @@ export default function Input({
     <div className={styles.input__container} id={
       focusedInput === label ? styles.active : styles.disabled
     }>
-      {isAdd ? <FiShoppingBag/> : label === "E-mail" ? <MdOutlineMail size={25} /> : <FiUser size={25} />}
+      {isAdd ? <FiShoppingBag size="25px"/> : label === "E-mail" ? <MdOutlineMail size="25px" /> : <FiUser size="25px" />}
       <div>
         <label htmlFor='input__id'>{label}</label>
         <input

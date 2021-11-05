@@ -23,7 +23,7 @@ export default function FinancesTable() {
         </thead>
         
         <tbody>
-          {finances.map((finance) => (
+          {finances && finances.map((finance) => (
             <TableRow
               editSelect={editSelect}
               setEditSelect={setEditSelect}

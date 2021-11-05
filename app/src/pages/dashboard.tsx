@@ -2,14 +2,16 @@
 import { useEffect, useState } from 'react'
 import { parseCookies } from 'nookies'
 import { FiArrowDown, FiArrowUp, FiLoader } from 'react-icons/fi'
-import FinancesTable from '../components/Dashboard/FinancesTable'
+
 import { IFinance, useAuth } from '../contexts/auth'
 
-import styles from '../styles/dashboard.module.scss'
+import FinancesTable from '../components/Dashboard/FinancesTable'
 import Header from '../components/Dashboard/Header'
-import FinancesService from '../services/FinancesService'
 import Chart from '../components/Dashboard/Chart'
+
+import FinancesService from '../services/FinancesService'
 import withSSRAuth from '../utils/withSSRAuth'
+import styles from '../styles/dashboard.module.scss'
 
 export default function Dashboard() {
   const { finances, setFinances, refresh, loading, setLoading } = useAuth()
@@ -57,7 +59,7 @@ export default function Dashboard() {
             </div>
           ) : (
             <>
-              <Chart finances={finances} />
+              <Chart />
               <aside>
                 {tableDirection === 'asc' ? <FiArrowDown size={35} onClick={handleToggleDirectionTable} /> : <FiArrowUp size={35} onClick={handleToggleDirectionTable} />}
               </aside>

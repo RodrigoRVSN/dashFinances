@@ -1,24 +1,33 @@
 import dynamic from "next/dynamic";
 
 import { ApexOptions } from "apexcharts";
-import { IFinance } from "../../contexts/auth";
+import { name } from 'apexcharts/dist/locales/pt-br.json'
+import { useAuth } from "../../../contexts/auth";
 
-const ChartDynamic = dynamic(() => import("react-apexcharts"), {
+
+export const ChartDynamic = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-interface ChartProps {
-  finances: IFinance[]
-}
+export default function Chart() {
+  const { finances } = useAuth();
 
-export default function Chart({ finances }: ChartProps) {
-  const dates = finances.map((item) => item.created);
+  const dates = finances.map((item) => new Date(item.created).toLocaleDateString("en", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  }),
+  );
+
   const amounts = finances.map((item) => item.amount);
 
   const series = [{ name: "series1", data: amounts }];
 
   const options: ApexOptions = {
+
     chart: {
+      locales: [{ name }],
+      defaultLocale: name,
       toolbar: {
         show: false,
       },
@@ -56,7 +65,7 @@ export default function Chart({ finances }: ChartProps) {
       },
     },
   };
-  
+
   return (
     <ChartDynamic options={options} series={series} type="area" height={160} />
   );

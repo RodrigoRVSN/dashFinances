@@ -58,7 +58,7 @@ class UserControllerClass {
 
     const token = jwt.sign({}, process.env.jwtSecret, {
       subject: user.id,
-      expiresIn: 60 * 60 * 24,
+      expiresIn: 60 * 60 * 24 * 30,
     });
 
     return res.status(200).json({ token, email: user.email, name: user.name });

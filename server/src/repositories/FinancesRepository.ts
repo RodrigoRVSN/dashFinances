@@ -35,7 +35,7 @@ class FinancesRepositoryClass {
        SELECT * 
        FROM finances
        WHERE user_id = $1
-       ORDER BY name ${direction}
+       ORDER BY created ${direction}
       `,
       [userToken],
     );

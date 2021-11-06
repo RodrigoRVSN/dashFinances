@@ -11,7 +11,7 @@ export default function Chart() {
   const { finances } = useAuth();
 
   const dates = finances.map((item) => item.createdAt);
-  const datesFormatted = [...new Set(dates)];
+  const datesFormatted = [...new Set(dates)].sort();
 
   const arraySum: number[] = [] as unknown as number[];
   datesFormatted.forEach((fin, index: number) => {

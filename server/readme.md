@@ -36,7 +36,8 @@ To use, follow the steps:
 - git clone https://github.com/rodrigorvsn/dashFinancesApi.git
 - yarn || npm install
 - Create your database (schema.sql)
-- yarn dev in /server and /app
+- Optional -> You can use docker-compose up
+- yarn dev in /server
 ```
 
 ## 📫 Contribuiting with dashFinances

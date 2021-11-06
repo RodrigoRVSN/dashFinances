@@ -1,9 +1,7 @@
 import dynamic from "next/dynamic";
 
 import { ApexOptions } from "apexcharts";
-import { name } from 'apexcharts/dist/locales/pt-br.json'
 import { useAuth } from "../../../contexts/auth";
-
 
 export const ChartDynamic = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -30,8 +28,6 @@ export default function Chart() {
   const options: ApexOptions = {
 
     chart: {
-      locales: [{ name }],
-      defaultLocale: name,
       toolbar: {
         show: false,
       },

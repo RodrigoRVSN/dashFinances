@@ -7,7 +7,6 @@ export default class MyDocument extends Document {
         <Head>
           <link rel='preconnect' href='https://fonts.gstatic.com' />
           <link rel='shortcut icon' href='/favicon.png' type='image/png' />
-          <title>DashFinances</title>
           <link rel='shortcut icon' href='/logo.png' type='image/x-icon' />
           <link
             href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap'
@@ -17,6 +16,7 @@ export default class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap'
             rel='stylesheet'
           />
+          <meta name="description" content="Nesse site você pode acessar suas finanças e visualizar elas com o usuo de gráficos" />
         </Head>
         <body>
           <Main />

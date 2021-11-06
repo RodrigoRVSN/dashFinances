@@ -53,11 +53,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [refresh, setRefresh] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  async function signOut() {
+  function signOut() {
+    setLoading(true);
     destroyCookie(undefined, '@dashfinances.token')
     setUser({} as IUser)
     setFinances([])
     Router.push('/')
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -82,8 +84,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setFinances,
         signOut,
         refresh,
-        setRefresh, 
-        loading, 
+        setRefresh,
+        loading,
         setLoading
       }}
     >

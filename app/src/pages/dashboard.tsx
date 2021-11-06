@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { parseCookies } from 'nookies'
 import { FiArrowDown, FiArrowUp, FiLoader } from 'react-icons/fi'
 
+import Head from 'next/head'
 import { IFinance, useAuth } from '../contexts/auth'
 
 import FinancesTable from '../components/Dashboard/FinancesTable'
@@ -46,27 +47,33 @@ export default function Dashboard() {
 
   return (
     <main className={styles.dashboard__container}>
-      <Header />
 
+      <Head>
+        <title>Dashboard | Dashfinances</title>
+      </Head>
       {loading ?
         <FiLoader className="loader" size={60} />
         :
-        <section>
-          {!finances.length ? (
-            <div>
-              <span>Nenhuma finança registrada ainda!</span>
-              <img src='/bear.svg' alt='Urso investidor' />
-            </div>
-          ) : (
-            <>
-              <Chart />
-              <aside>
-                {tableDirection === 'asc' ? <FiArrowDown size={35} onClick={handleToggleDirectionTable} /> : <FiArrowUp size={35} onClick={handleToggleDirectionTable} />}
-              </aside>
-              <FinancesTable />
-            </>
-          )}
-        </section>
+        <>
+          <Header />
+          <section>
+            {!finances.length ? (
+              <div>
+                <span>Nenhuma finança registrada ainda!</span>
+                <img className="appearRight" src='/bear.svg' alt='Urso investidor' loading="lazy" />
+              </div>
+            ) : (
+              <>
+                <Chart />
+                <aside>
+                  {tableDirection === 'asc' ? <FiArrowDown size={35} onClick={handleToggleDirectionTable} /> : <FiArrowUp size={35} onClick={handleToggleDirectionTable} />}
+                </aside>
+                <FinancesTable />
+              </>
+            )}
+          </section>
+        </>
+
       }
     </main>
   )

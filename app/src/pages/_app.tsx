@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import { AuthProvider } from '../contexts/auth'
 
 import '../styles/global.scss'
+import '../styles/animations.scss'
 
 import 'react-toastify/dist/ReactToastify.css'
 

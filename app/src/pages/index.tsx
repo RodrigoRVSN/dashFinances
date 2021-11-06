@@ -1,19 +1,23 @@
 import { useState } from 'react'
+import Head from 'next/head'
 import FormLogin from '../components/FormLogin'
 import FormRegister from '../components/FormRegister'
 
-import styles from '../styles/home.module.scss'
 import withSSRGuest from '../utils/withSSRGuesst'
+import styles from '../styles/home.module.scss'
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(true)
 
   return (
-    <main className={styles.home__container}>
-      <img src='/investing.svg' alt='Investindo' />
-      <div>
-        <img src='/logo.png' alt='logo' />
-        <div>
+    <div className={styles.home__container}>
+      <Head>
+        <title>Início | Dashfinances</title>
+      </Head>
+      <img className="appearRight" src='/investing.svg' alt='Investindo' loading="lazy" />
+      <main className="appearTop">
+        <img src='/logo.png' alt='logo' loading="lazy" />
+        <aside>
           <button
             onClick={() => setIsLogin(true)}
             className={isLogin ? styles.active : ''}
@@ -28,10 +32,10 @@ export default function Home() {
           >
             Registrar
           </button>
-        </div>
-        {isLogin ? <FormLogin /> : <FormRegister setIsLogin={setIsLogin} />}
-      </div>
-    </main>
+        </aside>
+        {isLogin ? <FormLogin  /> : <FormRegister setIsLogin={setIsLogin} />}
+      </main>
+    </div>
   )
 }
 

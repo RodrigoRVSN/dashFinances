@@ -9,14 +9,14 @@ export default function Header() {
   const [modalAddIsOpen, setModalAddIsOpen] = useState(false)
 
   return (
-    <header className={styles.header__container}>
+    <header className={`${styles.header__container} appearTop`}>
       {!!user && (
         <>
-          <div>
+          <aside>
             {user.name && <h2>Olá, {user.name}!</h2>}
             <h5>{user.email}</h5>
-          </div>
-          <img src='/logo.png' alt='Logo dashfinances' />
+          </aside>
+          <img src='/logo.png' alt='Logo dashfinances' loading="lazy" />
           <div>
             <ButtonSubmit
               onClick={() => setModalAddIsOpen(true)}

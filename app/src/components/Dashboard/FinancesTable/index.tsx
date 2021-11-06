@@ -9,7 +9,7 @@ export default function FinancesTable() {
 
   return (
     <div className={styles.table__container}>
-      <table>
+      <table className="appearRight">
         <thead>
           <tr>
             <td>Data</td>
@@ -21,7 +21,7 @@ export default function FinancesTable() {
             <td />
           </tr>
         </thead>
-        
+
         <tbody>
           {finances && finances.map((finance) => (
             <TableRow

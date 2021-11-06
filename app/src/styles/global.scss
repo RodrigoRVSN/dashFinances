@@ -77,16 +77,3 @@ a {
 .ReactModal__Content {
   border-radius: 1rem !important;
 }
-
-.loader{
-  animation: load 1.6s infinite;
-}
-
-@keyframes load {
-  from{
-    transform: rotate(0deg)
-  }
-  to{
-    transform: rotate(360deg)
-  }
-}

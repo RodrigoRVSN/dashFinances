@@ -7,6 +7,10 @@
 
   margin: 0 auto;
 
+  svg{
+    margin: auto;
+  }
+
   animation: fadeIn 1s;
   
   section {
@@ -26,11 +30,14 @@
       display: flex;
       justify-content: flex-end;
       svg{
-        background: var(--gray-100);
+        background: var(--gray-800);
         color: var(--green);
         border-radius: 50%;
         cursor: pointer;
-        transition: transform 0.2s ease-in;
+        transition: filter 0.6s ease-in;
+        &:hover{
+          filter: brightness(1.5);
+        }
       }
     }
 

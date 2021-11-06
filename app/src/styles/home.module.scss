@@ -8,7 +8,6 @@
   img {
     width: 35rem;
     height: 35rem;
-    margin-right: 5rem;
   }
 
   @media (max-width: 1120px) {
@@ -20,16 +19,15 @@
     img {
       width: 25rem;
       height: 25rem;
-      margin-right: 5rem;
     }
   }
-  > div {
+  > main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    > div {
+    > aside {
       width: 100%;
       display: flex;
 

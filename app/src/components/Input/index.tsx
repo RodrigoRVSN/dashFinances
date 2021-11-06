@@ -29,16 +29,15 @@ export default function Input({
     }>
       {isAdd ? <FiShoppingBag size="25px"/> : label === "E-mail" ? <MdOutlineMail size="25px" /> : <FiUser size="25px" />}
       <div>
-        <label htmlFor='input__id'>{label}</label>
+        <label htmlFor={`input__id__${label}`}>{label}</label>
         <input
           required
           {...rest}
-
           type={type}
           onFocus={() => handleFocusInput(label)}
           onBlur={() => handleFocusInput('')}
           placeholder={placeholder}
-          id='input__id'
+          id={`input__id__${label}`}
         />
       </div>
     </div>

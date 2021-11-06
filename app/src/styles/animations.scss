@@ -1,0 +1,47 @@
+.loader{
+  animation: load 1.6s infinite;
+}
+
+
+.appearRight{
+  animation: fadeRight 1.4s;
+}
+
+.appearTop{
+  animation: fadeTop 1.4s;
+}
+
+
+
+@keyframes load {
+  from{
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    transform: translateX(-10rem);
+    opacity: 0.4;
+  }
+
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeTop {
+  from {
+    transform: translateY(-10rem);
+    opacity: 0.4;
+  }
+
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

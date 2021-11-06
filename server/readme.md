@@ -1,25 +1,17 @@
-
-<center>
-  <img src="./app/public/logo.png" width="150px"/>
-</center>
+DashFinancesAPI
 
 <!--- https://shields.io --->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/rodrigorvsn/dashFinances?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/rodrigorvsn/dashFinances?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/rodrigorvsn/dashFinances?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rodrigorvsn/dashFinances?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/rodrigorvsn/dashFinances?style=for-the-badge)
-
-___
-<!--- #################### mudar badges #################### --->
-
-![Untitled_ Nov 3, 2021 8_34 AM](https://user-images.githubusercontent.com/75763403/140053676-86ef79eb-0f67-4d88-b8ce-983e3057e6bf.gif)
-
+![GitHub repo size](https://img.shields.io/github/repo-size/rodrigorvsn/dashFinancesApi?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/rodrigorvsn/dashFinancesApi?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/rodrigorvsn/dashFinancesApi?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rodrigorvsn/dashFinancesApi?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/rodrigorvsn/dashFinancesApi?style=for-the-badge)
 
 <!--- #################### mudar imagem exemplo #################### --->
 ___
-> This site was made to manage your finances (https://github.com/RodrigoRVSN/dashFinances)
+> ## That's a API to the project available in [my project called dashFinances](https://github.com/RodrigoRVSN/dashFinances)
+> This site was made to manage your finances (https://dash-finances-web-rodrigorvsn.vercel.app/dashboard)
 - Authentication with backend made in Nodejs (express)
 - Frontend with Next
 ___
@@ -30,12 +22,6 @@ ___
 ___
 ## 🛠 Tools used
 
-- Typescript
-- <b>Nextjs</b>
-- Apexchart
-- Nookies
-- Sass
-- React-modal
 - <b>Node</b>
 - Express
 - JsonWebToken
@@ -47,7 +33,7 @@ ___
 To use, follow the steps:
 
 ```js
-- git clone https://github.com/rodrigorvsn/dashFinances.git
+- git clone https://github.com/rodrigorvsn/dashFinancesApi.git
 - yarn || npm install
 - Create your database (schema.sql)
 - yarn dev in /server and /app

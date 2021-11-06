@@ -5,7 +5,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "['.js', '.jsx', '.ts', '.tsx']": [
+    "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "cross-env CI=true yarn jest --bail --findRelatedTests",
       "git add"
@@ -15,7 +15,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "apexcharts": "^3.29.0",
@@ -50,7 +51,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.3.1",
     "jest-dom": "^4.0.0",

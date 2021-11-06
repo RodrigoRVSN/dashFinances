@@ -12,17 +12,21 @@ export const ChartDynamic = dynamic(() => import("react-apexcharts"), {
 export default function Chart() {
   const { finances } = useAuth();
 
-  const dates = finances.map((item) => new Date(item.created).toLocaleDateString("en", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "2-digit",
-  }),
-  );
+  const dates = finances.map((item) => item.createdAt);
+  const datesFormatted = [...new Set(dates)];
 
-  const amounts = finances.map((item) => item.amount);
+  const arraySum: number[] = [] as unknown as number[];
+  datesFormatted.forEach((fin, index: number) => {
+    let sum = 0;
+    finances.forEach((item) => {
+      if (fin === item.createdAt) {
+        sum += item.amount
+      }
+    })
+    arraySum[index] = sum;
+  })
 
-  const series = [{ name: "series1", data: amounts }];
-
+  const series = [{ name: "series1", data: arraySum }];
   const options: ApexOptions = {
 
     chart: {
@@ -46,27 +50,28 @@ export default function Chart() {
       enabled: false,
     },
     xaxis: {
-      type: "datetime",
+      type: "category",
       axisBorder: {
         color: "#2a9d8f",
       },
       axisTicks: {
         color: "#2a9d8f",
       },
-      categories: dates,
+      categories: datesFormatted,
+
     },
     fill: {
       opacity: 0.3,
       type: "gradient",
       gradient: {
         shade: "dark",
-        opacityFrom: 0.5,
-        opacityTo: 0.3,
+        opacityFrom: 1,
+        opacityTo: 0.9,
       },
     },
   };
 
   return (
-    <ChartDynamic options={options} series={series} type="area" height={160} />
+    <ChartDynamic options={options} series={series} type="line" height={160} />
   );
 }

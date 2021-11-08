@@ -53,7 +53,7 @@ class UserControllerClass {
     }
 
     if (user.password !== password) {
-      return res.status(400).json({ error: `Senha errada!` });
+      return res.status(400).json({ error: `Senha ou e-mail incorreta(o)!` });
     }
 
     const token = jwt.sign({}, process.env.jwtSecret, {

@@ -58,7 +58,7 @@ export default function FormLogin() {
         placeholder='Digite sua senha'
         label='Senha'
       />
-      <ButtonSubmit loading={loading} title='ENTRAR' />
+      <ButtonSubmit loading={loading} title='ENTRAR' disabled={!password || !email}/>
     </form>
   )
 }

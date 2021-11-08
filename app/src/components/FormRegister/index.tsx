@@ -57,7 +57,7 @@ export default function FormRegister({ setIsLogin }: FormRegisterProps) {
         placeholder='Digite sua senha'
         label='Senha'
       />
-      <ButtonSubmit loading={loading} title='REGISTRAR' />
+      <ButtonSubmit loading={loading} title='REGISTRAR' disabled={!password || !email || !name} />
     </form>
   )
 }

@@ -27,6 +27,7 @@
     align-items: center;
     justify-content: center;
 
+
     > aside {
       width: 100%;
       display: flex;
@@ -49,7 +50,10 @@
     }
 
     @media (max-width: 1120px) {
-      margin-top: 40vh;
+      margin-top: 20vh;
+      img{
+        display: none;
+      }
     }
     
     img {

@@ -1,3 +1,4 @@
+import { compare, hash } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import { UsersRepository } from "../repositories/UsersRepository";
@@ -31,7 +32,13 @@ class UserControllerClass {
       return res.status(400).json({ error: "Usuário já existe!" });
     }
 
-    const user = await UsersRepository.create({ name, email, password });
+    const hashedPassword = await hash(password, 8);
+
+    const user = await UsersRepository.create({
+      name,
+      email,
+      password: hashedPassword,
+    });
 
     return res.status(201).json(user);
   }
@@ -52,7 +59,8 @@ class UserControllerClass {
       return res.status(400).json({ error: "Usuário não existe!" });
     }
 
-    if (user.password !== password) {
+    const comparedPassword = await compare(password, user.password);
+    if (!comparedPassword) {
       return res.status(400).json({ error: `Senha ou e-mail incorreta(o)!` });
     }
 

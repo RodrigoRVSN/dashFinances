@@ -12,7 +12,7 @@ export default function ButtonSubmit({
   title,
   disabled,
   loading,
-  onClick = () => undefined,
+  onClick,
 }: ButtonSubmitProps) {
   return (
     <button

@@ -7,12 +7,11 @@ describe("<Header />", () => {
   it("Should render Header and open modal", () => {
     const handleOpen = jest.fn();
 
-    const { getByText, debug } = render(
+    const { getByText } = render(
       <AuthProvider>
         <Header />
       </AuthProvider>
     );
-    debug();
 
     fireEvent.click(getByText('Nova finança'));
 

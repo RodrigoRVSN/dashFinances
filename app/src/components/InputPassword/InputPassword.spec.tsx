@@ -1,24 +1,36 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import InputPassword from ".";
 
+const setup = () => {
+  const renderResult = render(
+    <InputPassword placeholder="senha" label="senha" />
+  );
+
+  const inputElement = screen.getByPlaceholderText('senha')
+
+  return {
+    inputElement,
+    ...renderResult
+  }
+}
+
 describe("<InputPassword />", () => {
   it("Should toggle type password", () => {
-    render(
-      <InputPassword placeholder="senha" label="senha" />
-    );
+    const { inputElement } = setup();
 
     fireEvent.click(screen.getByTestId('eye-off'));
-    expect(screen.getByPlaceholderText('senha')).toHaveAttribute('type', 'text')
+    expect(inputElement).toHaveAttribute('type', 'text')
 
     fireEvent.click(screen.getByTestId('eye-on'));
-    expect(screen.getByPlaceholderText('senha')).toHaveAttribute('type', 'password')
+    expect(inputElement).toHaveAttribute('type', 'password')
   });
 
-  it("Should clear and focus input", () => {
-    render(
-      <InputPassword placeholder="senha" label="senha" />
-    );
+  it("Should focus input", () => {
+    const { inputElement } = setup();
+    const handleFocus = jest.fn();
 
-    screen.getByPlaceholderText('senha');
+    inputElement.focus();
+    expect(document.activeElement === inputElement).toBeTruthy();
+    expect(handleFocus).toHaveBeenCalledTimes(1);
   });
 });

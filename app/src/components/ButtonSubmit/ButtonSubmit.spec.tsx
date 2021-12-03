@@ -16,15 +16,6 @@ describe("<ButtonSubmit />", () => {
     expect(fn).not.toHaveBeenCalled();
   });
 
-  it("Should call function on button enabled", () => {
-    const fn = jest.fn();
-
-    render(<ButtonSubmit title="title" onClick={fn} />)
-    fireEvent.click(screen.getByRole("button", { name: /title/i }));
-
-    expect(fn).toHaveBeenCalledTimes(1);
-  });
-
   it("Should call Loading Component in loading state", () => {
 
     const { container } = render(<ButtonSubmit title="title" loading />);

@@ -41,8 +41,16 @@ export default function InputPassword({
         />
       </div>
       {showPassword ?
-        <FiEye size="25px" onClick={() => handleTogglePasswordState()} /> :
-        <FiEyeOff size="25px" onClick={() => handleTogglePasswordState()} />}
+        <FiEye
+          data-testid="eye-on"
+          size="25px"
+          onClick={() => handleTogglePasswordState()}
+        /> :
+        <FiEyeOff
+          data-testid="eye-off"
+          size="25px"
+          onClick={() => handleTogglePasswordState()}
+        />}
     </div>
   )
 }

@@ -11,7 +11,7 @@ import {
 } from 'react'
 import UsersServices from '../services/UsersServices'
 
-interface IUser {
+export interface IUser {
   token: string
   email: string
   name: string
@@ -26,7 +26,7 @@ export interface IFinance {
   createdAt: string;
 }
 
-interface AuthContextData {
+export interface AuthContextData {
   user: IUser
   setUser: Dispatch<SetStateAction<IUser>>
   finances: IFinance[]
@@ -44,7 +44,7 @@ interface AuthProviderProps {
   children: ReactNode
 }
 
-const AuthContext = createContext({} as AuthContextData)
+export const AuthContext = createContext({} as AuthContextData)
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<IUser>({} as IUser)
@@ -55,10 +55,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   function signOut() {
     setLoading(true);
+    console.log('🔥🔥🔥🔥🔥🔥🔥🔥 push');
     destroyCookie(undefined, '@dashfinances.token')
     setUser({} as IUser)
     setFinances([])
     Router.push('/')
+    console.log('🔥 push');
     setLoading(false);
   }
 

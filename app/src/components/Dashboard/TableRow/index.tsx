@@ -8,7 +8,7 @@ import ModalDelete from '../ModalDelete'
 import styles from './styles.module.scss'
 import FinancesService from '../../../services/FinancesService'
 
-interface TableRowProps {
+export interface TableRowProps {
   finance: IFinance
   setEditSelect: Dispatch<SetStateAction<string>>
   editSelect: string
@@ -26,7 +26,7 @@ export default function TableRow({
   const { refresh, setRefresh, setLoading } = useAuth()
 
   function handleGoEdit() {
-    setEditSelect(finance.id)
+    setEditSelect(() => finance.id)
   }
 
   async function handleEditInput() {
@@ -38,7 +38,7 @@ export default function TableRow({
       toast.dark('✅ Edição feita com sucesso!')
     } catch (error: any) {
       toast.error(error.message)
-    } finally{
+    } finally {
       setLoading(false);
     }
   }
@@ -54,6 +54,7 @@ export default function TableRow({
             value={name}
           />
         </td>
+
         <td>
           <input
             disabled={finance.id !== editSelect}
@@ -73,12 +74,12 @@ export default function TableRow({
         <td>
           <button type='button'>
             {finance.id !== editSelect ? (
-              <FiEdit size={20} onClick={handleGoEdit} />
+              <FiEdit data-testid="button-edit" size={20} onClick={handleGoEdit} />
             ) : (
-              <AiOutlineCheckCircle size={20} onClick={handleEditInput} />
+              <AiOutlineCheckCircle data-testid="button-cancel-edit" size={20} onClick={handleEditInput} />
             )}
           </button>
-          <button type='button' onClick={() => setIsOpen(true)}>
+          <button type='button' data-testid="button-remove" onClick={() => setIsOpen(true)}>
             <FiTrash2 size={20} />
           </button>
         </td>

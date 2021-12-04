@@ -1,22 +1,29 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import Header from ".";
-import { AuthProvider } from "../../../contexts/auth";
-import ModalAdd from "../ModalAdd";
+import { AuthContext } from "../../../contexts/auth";
+import data from "../../../tests/__mocks__/authProvider";
 
 describe("<Header />", () => {
   it("Should render Header and open modal", () => {
-    const handleOpen = jest.fn();
-
     const { getByText } = render(
-      <AuthProvider>
+      <AuthContext.Provider value={{ ...data }}>
         <Header />
-      </AuthProvider>
+      </AuthContext.Provider>
     );
 
-    fireEvent.click(getByText('Nova finança'));
+    fireEvent.click(getByText(/Nova finança/i));
+    expect(getByText('Inserir nova transação')).toBeInTheDocument();
 
-    const { getAllByText } = render(<ModalAdd modalAddIsOpen={false} setModalAddIsOpen={handleOpen} />);
-
-    expect(getAllByText('Inserir nova transação'));
   });
+  it("Should sign out user in header button", () => {
+    render(
+      <AuthContext.Provider value={{ ...data }}>
+        <Header />
+      </AuthContext.Provider>
+    );
+
+    fireEvent.click(screen.getByText(/Sair/i));
+
+    expect(data.signOut).toHaveBeenCalled();
+  })
 });

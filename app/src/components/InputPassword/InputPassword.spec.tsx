@@ -25,12 +25,12 @@ describe("<InputPassword />", () => {
     expect(inputElement).toHaveAttribute('type', 'password')
   });
 
-  it("Should focus input", () => {
+  it("Should focus and blur input", () => {
     const { inputElement } = setup();
-    const handleFocus = jest.fn();
 
     inputElement.focus();
-    expect(document.activeElement === inputElement).toBeTruthy();
-    expect(handleFocus).toHaveBeenCalledTimes(1);
+    expect(inputElement).toHaveFocus();
+    inputElement.blur();
+    expect(inputElement).not.toHaveFocus();
   });
 });

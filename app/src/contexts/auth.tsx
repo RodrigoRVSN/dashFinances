@@ -55,12 +55,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   function signOut() {
     setLoading(true);
-    console.log('🔥🔥🔥🔥🔥🔥🔥🔥 push');
     destroyCookie(undefined, '@dashfinances.token')
     setUser({} as IUser)
     setFinances([])
     Router.push('/')
-    console.log('🔥 push');
     setLoading(false);
   }
 

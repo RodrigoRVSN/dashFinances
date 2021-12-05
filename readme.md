@@ -40,6 +40,8 @@ ___
 - <b>Node</b>
 - Express
 - JsonWebToken
+- React-testing-library (jest)
+- Cypress (Test E2E)
 
 <!--- #################### mudar ferramentas #################### --->
 ___

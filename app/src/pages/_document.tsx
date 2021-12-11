@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
             rel='stylesheet'
           />
           <meta name="description" content="Nesse site você pode acessar suas finanças e visualizar elas com o usuo de gráficos" />
+          <link rel="manifest" href="/manifest.json" />
         </Head>
         <body>
           <Main />

@@ -8,6 +8,9 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "types": [
+      "cypress"
+    ],
     "lib": [
       "dom",
       "dom.iterable",

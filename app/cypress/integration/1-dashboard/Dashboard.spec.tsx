@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 /// <reference types="cypress" />
 
+export {}
+
 describe(('<Dashboard />'), () => {
   context('Visit Dashboard', () => {
     it('Should visit home page', () => {

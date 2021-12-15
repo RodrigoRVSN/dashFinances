@@ -9,6 +9,7 @@ module.exports = {
   moduleNameMapper: {
     "\\.(scss|css|sass)$": "identity-obj-proxy"
   },
+  testPathIgnorePatterns: ["<rootDir>/cypress/"],
   testEnvironment: 'jsdom',
   collectCoverage: true,
   collectCoverageFrom: [

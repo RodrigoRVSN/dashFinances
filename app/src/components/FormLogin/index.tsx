@@ -2,13 +2,13 @@ import Router from 'next/router'
 import { FormEvent, useState } from 'react'
 import { setCookie } from 'nookies'
 import { toast } from 'react-toastify'
-import { useAuth } from '../../contexts/auth'
 import ButtonSubmit from '../ButtonSubmit'
 
 import styles from './styles.module.scss'
 import Input from '../Input'
 import UsersServices from '../../services/UsersServices'
 import InputPassword from '../InputPassword'
+import { useAuth } from '../../hooks/useAuth'
 
 export default function FormLogin() {
   const { setUser, setToken } = useAuth()

@@ -4,7 +4,6 @@ import { parseCookies } from 'nookies'
 import { FiArrowDown, FiArrowUp, FiLoader } from 'react-icons/fi'
 
 import Head from 'next/head'
-import { useAuth } from '../contexts/auth'
 
 import FinancesTable from '../components/Dashboard/FinancesTable'
 import Header from '../components/Dashboard/Header'
@@ -14,6 +13,7 @@ import FinancesService from '../services/FinancesService'
 import withSSRAuth from '../utils/withSSRAuth'
 import styles from '../styles/dashboard.module.scss'
 import { IFinance } from '../contexts/auth.types'
+import { useAuth } from '../hooks/useAuth'
 
 export default function Dashboard() {
   const { finances, setFinances, refresh, loading, setLoading } = useAuth()

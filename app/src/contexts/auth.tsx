@@ -2,7 +2,6 @@ import Router from 'next/router'
 import { destroyCookie, parseCookies } from 'nookies'
 import {
   createContext,
-  useContext,
   useEffect,
   useState,
 } from 'react'
@@ -58,9 +57,4 @@ export function AuthProvider({ children }: AuthProviderProps) {
       {children}
     </AuthContext.Provider>
   )
-}
-
-export function useAuth(): AuthContextData {
-  const context = useContext(AuthContext)
-  return context
 }

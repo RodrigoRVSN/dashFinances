@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAuth } from '../../../contexts/auth'
+import { useAuth } from '../../../hooks/useAuth'
 import TableRow from '../TableRow'
 import styles from './styles.module.scss'
 

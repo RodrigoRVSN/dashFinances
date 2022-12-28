@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 
 import { ApexOptions } from "apexcharts";
-import { useAuth } from "../../../contexts/auth";
+import { useAuth } from "../../../hooks/useAuth";
 
 export const ChartDynamic = dynamic(() => import("react-apexcharts"), {
   ssr: false,
@@ -14,6 +14,7 @@ export default function Chart() {
   const datesFormatted = [...new Set(dates)].sort();
 
   const arraySum: number[] = [] as unknown as number[];
+  
   datesFormatted.forEach((fin, index: number) => {
     let sum = 0;
     finances.forEach((item) => {

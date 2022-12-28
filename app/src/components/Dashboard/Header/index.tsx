@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useAuth } from '../../../contexts/auth'
+import { useAuth } from '../../../hooks/useAuth'
 import ButtonSubmit from '../../ButtonSubmit'
 import ModalAdd from '../ModalAdd'
 import styles from './styles.module.scss'

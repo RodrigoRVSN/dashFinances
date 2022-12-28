@@ -6,7 +6,7 @@ import {
 import { destroyCookie, parseCookies } from 'nookies'
 import { toast } from 'react-toastify'
 
-export default function withSSRAuth<P>(fn: GetServerSideProps<P>) {
+export default function withSSRAuth<P extends { [key: string]: any }>(fn: GetServerSideProps<P>) {
   return async (
     ctx: GetServerSidePropsContext
   ): Promise<GetServerSidePropsResult<P>> => {

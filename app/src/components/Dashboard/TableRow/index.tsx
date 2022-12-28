@@ -2,11 +2,12 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { FiEdit, FiTrash2 } from 'react-icons/fi'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 import { toast } from 'react-toastify'
-import { IFinance, useAuth } from '../../../contexts/auth'
+import {  useAuth } from '../../../contexts/auth'
 import ModalDelete from '../ModalDelete'
 
 import styles from './styles.module.scss'
 import FinancesService from '../../../services/FinancesService'
+import { IFinance } from '../../../contexts/auth.types'
 
 export interface TableRowProps {
   finance: IFinance

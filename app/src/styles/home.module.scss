@@ -1,36 +1,24 @@
 .home__container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 2rem;
 
-  img {
-    width: 35rem;
-    height: 35rem;
-  }
 
   @media (max-width: 1120px) {
     flex-direction: column-reverse;
   }
 
-  @media (max-width: 620px) {
-    flex-direction: column-reverse;
-    img {
-      width: 25rem;
-      height: 25rem;
-    }
-  }
   > main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
 
     > aside {
       width: 100%;
       display: flex;
+      border-radius: 2rem;
 
       button {
         padding: 1rem;
@@ -40,6 +28,7 @@
         background: var(--gray-900);
         border: 0;
       }
+
       button:last-child {
         border-radius: 0 1rem 0 0;
       }
@@ -47,19 +36,6 @@
       .active {
         background: var(--gray-850);
       }
-    }
-
-    @media (max-width: 1120px) {
-      margin-top: 55vh;
-      img{
-        display: none;
-      }
-    }
-    
-    img {
-      width: 10rem;
-      height: 10rem;
-      margin-right: 0;
     }
   }
 }
